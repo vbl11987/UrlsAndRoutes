@@ -1,0 +1,8 @@
+/home/boris/dotnet/UrlsAndRoutes/bin/Debug/netcoreapp1.1/UrlsAndRoutes.deps.json
+/home/boris/dotnet/UrlsAndRoutes/bin/Debug/netcoreapp1.1/UrlsAndRoutes.runtimeconfig.json
+/home/boris/dotnet/UrlsAndRoutes/bin/Debug/netcoreapp1.1/UrlsAndRoutes.runtimeconfig.dev.json
+/home/boris/dotnet/UrlsAndRoutes/bin/Debug/netcoreapp1.1/UrlsAndRoutes.dll
+/home/boris/dotnet/UrlsAndRoutes/bin/Debug/netcoreapp1.1/UrlsAndRoutes.pdb
+/home/boris/dotnet/UrlsAndRoutes/obj/Debug/netcoreapp1.1/UrlsAndRoutes.AssemblyInfo.cs
+/home/boris/dotnet/UrlsAndRoutes/obj/Debug/netcoreapp1.1/UrlsAndRoutes.dll
+/home/boris/dotnet/UrlsAndRoutes/obj/Debug/netcoreapp1.1/UrlsAndRoutes.pdb
