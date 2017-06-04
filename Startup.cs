@@ -19,8 +19,13 @@ namespace UrlsAndRoutes
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<RouteOptions>(options => 
-                options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint)));
+            services.Configure<RouteOptions>(options => {
+                options.ConstraintMap.Add("weekday", typeof(WeekDayConstraint));
+                //setting urls to lower case, default value is false
+                options.LowercaseUrls = true;
+                //appending trailing slash to url, default value is false
+                options.AppendTrailingSlash = true;
+            });
             services.AddMvc();   
         }
 
@@ -35,6 +40,27 @@ namespace UrlsAndRoutes
                 
 
             app.UseMvc(routes => {
+                //making available the area admin section
+                routes.MapRoute(
+                    name : "areas",
+                    template : "{area:exists}/{controller=Home}/{action=Index}"
+                );
+
+
+                //using the Legacy Route
+                routes.Routes.Add(new LegacyRoute(app.ApplicationServices ,"/articles/Windows_3.1_Overview.html",
+                    "old/.NET_1.0_Class_Library"));
+
+                routes.MapRoute(
+                    name : "default",
+                    template : "{controller}/{action}/{id?}"
+                );
+
+                routes.MapRoute(
+                    name : "out",
+                    template : "outbound/{controller=Home}/{action=Index}"
+                );
+
                 routes.MapRoute(
                     name : "MyRouteNotInlineConstraints",
                     template : "{controller}/{action}/{id?}",
@@ -48,7 +74,7 @@ namespace UrlsAndRoutes
                 );
                 routes.MapRoute(
                     name : "MyRouteInlineConstraints",
-                    template : "{controller}/{action}/{id:aplha:min(3):weekday?}"
+                    template : "{controller}/{action}/{id:alpha:min(3):weekday?}"
                 );
                 routes.MapRoute(
                     name : "MyRoutes",
